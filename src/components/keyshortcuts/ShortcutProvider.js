@@ -132,6 +132,7 @@ export default class ShortcutProvider extends Component {
       .replace(/\s/, 'Spacebar')
       .toUpperCase();
 
+    // eslint-disable-next-line no-console
     console.log('SERIALIZED SEQUENCE: ', key, serializedSequence, event.altKey);
 
     if (
@@ -177,6 +178,7 @@ export default class ShortcutProvider extends Component {
       modifierKey = 'Shift';
     }
 
+    // eslint-disable-next-line no-console
     console.log('HANDLE KEY UP: ', key, modifierKey);
 
     this.keySequence = this.keySequence.filter(
