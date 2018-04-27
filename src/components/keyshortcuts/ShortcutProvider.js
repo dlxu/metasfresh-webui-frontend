@@ -132,6 +132,8 @@ export default class ShortcutProvider extends Component {
       .replace(/\s/, 'Spacebar')
       .toUpperCase();
 
+    console.log('SERIALIZED SEQUENCE: ', key, serializedSequence, event.altKey);
+
     if (
       !(serializedSequence in hotkeys) ||
       // some shortcuts should be disabled
@@ -174,6 +176,8 @@ export default class ShortcutProvider extends Component {
     } else if (event.shiftKey === true) {
       modifierKey = 'Shift';
     }
+
+    console.log('HANDLE KEY UP: ', key, modifierKey);
 
     this.keySequence = this.keySequence.filter(
       _key => _key !== key && _key !== modifierKey
