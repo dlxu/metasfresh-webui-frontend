@@ -168,22 +168,13 @@ export default class ShortcutProvider extends Component {
       return;
     }
 
-    let modifierKey = null;
-
-    if (event.altKey === true) {
-      modifierKey = 'Alt';
-    } else if (event.ctrlKey === true) {
-      modifierKey = 'Ctrl';
-    } else if (event.shiftKey === true) {
-      modifierKey = 'Shift';
-    }
-
-    // eslint-disable-next-line no-console
-    console.log('HANDLE KEY UP: ', key, modifierKey);
+    const modifierKeys = ['Alt', 'Ctrl', 'Shift'];
 
     this.keySequence = this.keySequence.filter(
-      _key => _key !== key && _key !== modifierKey
+      _key => _key !== key && modifierKeys.indexOf(_key) === -1
     );
+
+    console.log('HANDLE KEY UP: ', key, this.keySequence);
 
     delete this.fired[key];
   };
